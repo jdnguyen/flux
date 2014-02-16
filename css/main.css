@@ -302,3 +302,7 @@ textarea {
         page-break-after: avoid;
     }
 }
+
+#canvas {
+    background-color: black
+}
