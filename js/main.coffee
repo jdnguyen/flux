@@ -7,6 +7,8 @@ _bullet_speed = 3
 
 _enemy_ships = []
 _enemy_bullets = []
+_enemy_spawn_counter = 0
+_enemy_spawn_rate = 200
 
 init = ->
   _enemy_ships = []
@@ -27,13 +29,13 @@ init = ->
 update = ->
   enemyBulletTravel()
   enemyShipMovement()
+  enemyShipSpawn()
 
   stage.update()
 
 enemyBulletTravel = ->
-  i = 0
-
-  while i < _enemy_bullets.length
+  i = _enemy_bullets.length - 1
+  while i >= 0
     bullet = _enemy_bullets[i]
     bullet.shape.x += bullet.dir_x
     bullet.shape.y += bullet.dir_y
@@ -42,25 +44,32 @@ enemyBulletTravel = ->
       _enemy_bullets.splice(i, 1)
     else
       pt = bullet.shape.localToLocal(0,0,_my_ship)
-      console.log "MY SHIP GOT HIT" if _my_ship.hitTest(pt.x, pt.y)
-    i++
+      if _my_ship.hitTest(pt.x, pt.y)
+        stage.removeChild bullet.shape
+        _enemy_bullets.splice(i, 1)
+        console.log "MY SHIP GOT HIT"
+    i--
+
+enemyShipSpawn = ->
+  _enemy_spawn_counter++
+  if _enemy_spawn_counter >= _enemy_spawn_rate
+    _enemy_spawn_counter = 0
+    spawnEnemy()
 
 enemyShipMovement = ->
-  i = 0
-
-  while i < _enemy_ships.length
+  i = _enemy_ships.length - 1
+  while i >= 0
     ship = _enemy_ships[i]
     ship.shape.x -= 2
     if ship.shape.x + _ship_width <= 0
       stage.removeChild ship.shape
       _enemy_ships.splice(i, 1)
-      spawnEnemy()
     else
       ship.shootCounter++
       if ship.shootCounter >= ship.shootDelay
         ship.shootCounter = 0
         createBullet(ship.shape.x, ship.shape.y)
-    i++
+    i--
 
 createBullet = (start_x, start_y) ->
   shape = new createjs.Shape()
