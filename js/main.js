@@ -93,12 +93,14 @@
   };
 
   pushBullets = function() {
-    var bullet, i;
+    var bullet, direction, i;
     i = _my_pulled_bullets.length - 1;
     while (i >= 0) {
       bullet = _my_pulled_bullets[i];
-      bullet.dir_x *= -bullet.charge / _bullet_push_multiplier;
-      bullet.dir_y *= -bullet.charge / _bullet_push_multiplier;
+      direction = bullet.charge / _bullet_push_multiplier;
+      direction = direction > 1 ? direction : 1;
+      bullet.dir_x *= -direction;
+      bullet.dir_y *= -direction;
       _my_pushed_bullets.push(bullet);
       i--;
     }

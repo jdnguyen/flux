@@ -73,8 +73,10 @@ pushBullets = ->
   i = _my_pulled_bullets.length - 1
   while i >= 0
     bullet = _my_pulled_bullets[i]
-    bullet.dir_x *= -bullet.charge/_bullet_push_multiplier
-    bullet.dir_y *= -bullet.charge/_bullet_push_multiplier
+    direction = bullet.charge/_bullet_push_multiplier
+    direction = if direction > 1 then direction else 1
+    bullet.dir_x *= -direction
+    bullet.dir_y *= -direction
     _my_pushed_bullets.push bullet
     i--
   _my_pulled_bullets = []
