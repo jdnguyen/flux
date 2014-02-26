@@ -4,13 +4,13 @@
 
   stage = new createjs.Stage("canvas");
 
-  _my_ship = new createjs.Shape();
+  _my_ship = new createjs.Bitmap("img/my_ship.png");
 
   _my_pulled_bullets = [];
 
   _my_pushed_bullets = [];
 
-  _ship_width = 80;
+  _ship_width = 50;
 
   _ship_height = 30;
 
@@ -28,7 +28,7 @@
 
   _my_shield = new createjs.Shape();
 
-  _flux_radius = 80;
+  _flux_radius = 60;
 
   _flux_activate = false;
 
@@ -47,11 +47,10 @@
   init = function() {
     _enemy_ships = [];
     _enemy_bullets = [];
-    _my_ship.graphics.beginFill("blue").drawRect(0, 0, _ship_width, _ship_height);
     _my_shield.graphics.beginFill("#37FDFC").drawCircle(0, 0, _flux_radius);
     _my_ship.x = 100;
     _my_ship.y = stage.canvas.height - _ship_height;
-    _my_shield.x = _my_ship.x + _flux_radius / 2;
+    _my_shield.x = _my_ship.x + 25;
     _my_shield.y = _my_ship.y + _flux_radius / 4;
     _my_shield.alpha = 0.1;
     stage.addChild(_my_shield);
@@ -254,7 +253,7 @@
   };
 
   createBullet = function(start_x, start_y) {
-    var dist, nx, ny, shape, target_x, target_y, _bullet;
+    var bullet, dist, nx, ny, shape, target_x, target_y;
     shape = new createjs.Shape();
     shape.graphics.beginFill("red").drawCircle(0, 0, _bullet_size);
     shape.x = start_x + _ship_width / 2;
@@ -265,7 +264,7 @@
     nx = (target_x - shape.x) / dist;
     ny = (target_y - shape.y) / dist;
     stage.addChild(shape);
-    return _bullet = {
+    return bullet = {
       shape: shape,
       dir_x: nx,
       dir_y: ny
@@ -274,8 +273,7 @@
 
   spawnEnemy = function() {
     var shape, _enemy_ship;
-    shape = new createjs.Shape();
-    shape.graphics.beginFill("red").drawRect(0, 0, _ship_width, _ship_height);
+    shape = new createjs.Bitmap("img/ship_3.png");
     shape.x = stage.canvas.width;
     shape.y = 50;
     _enemy_ship = {
