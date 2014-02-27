@@ -29,7 +29,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="1474" selection-end="1474" vertical-scroll-proportion="-19.62963" vertical-offset="28" max-vertical-offset="918">
+            <state line="31" column="0" selection-start="1474" selection-end="1474" vertical-scroll-proportion="-13.962963" vertical-offset="181" max-vertical-offset="918">
               <folding />
             </state>
           </provider>
@@ -38,8 +38,29 @@
       <file leaf-file-name="main.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="54" selection-start="1783" selection-end="1783" vertical-scroll-proportion="0.41144413" vertical-offset="1066" max-vertical-offset="4104">
+            <state line="41" column="18" selection-start="974" selection-end="974" vertical-scroll-proportion="0.58900523" vertical-offset="288" max-vertical-offset="5454">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="176" column="0" selection-start="4984" selection-end="4984" vertical-scroll-proportion="0.0" vertical-offset="2839" max-vertical-offset="6534">
+              <folding>
+                <marker date="1393468909735" expanded="true" signature="1037:1291" placeholder="{...}" />
+                <marker date="1393468909735" expanded="true" signature="923:968" placeholder="{...}" />
+                <marker date="1393468909735" expanded="true" signature="986:997" placeholder="{...}" />
+                <marker date="1393468909735" expanded="true" signature="1003:1052" placeholder="{...}" />
+                <marker date="1393468909735" expanded="true" signature="1632:2094" placeholder="{...}" />
+                <marker date="1393468909735" expanded="true" signature="1719:2048" placeholder="{...}" />
+                <marker date="1393468909735" expanded="true" signature="1695:1716" placeholder="{...}" />
+                <marker date="1393468909735" expanded="true" signature="1923:2006" placeholder="{...}" />
+                <marker date="1393468909735" expanded="true" signature="3248:3542" placeholder="{...}" />
+                <marker date="1393468909735" expanded="true" signature="3343:3369" placeholder="{...}" />
+                <marker date="1393468909735" expanded="true" signature="3332:3444" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -129,6 +150,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main.coffee" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -290,7 +329,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -429,11 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="0" selection-start="2269" selection-end="2269" vertical-scroll-proportion="0.29319373" vertical-offset="1342" max-vertical-offset="2106" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10026">
@@ -448,21 +482,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1474" selection-end="1474" vertical-scroll-proportion="-19.62963" vertical-offset="28" max-vertical-offset="918">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/ship_3.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1474" selection-end="1474" vertical-scroll-proportion="-13.962963" vertical-offset="181" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="764">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="176" column="0" selection-start="4984" selection-end="4984" vertical-scroll-proportion="0.0" vertical-offset="2839" max-vertical-offset="6534">
+          <folding>
+            <marker date="1393468909735" expanded="true" signature="1037:1291" placeholder="{...}" />
+            <marker date="1393468909735" expanded="true" signature="923:968" placeholder="{...}" />
+            <marker date="1393468909735" expanded="true" signature="986:997" placeholder="{...}" />
+            <marker date="1393468909735" expanded="true" signature="1003:1052" placeholder="{...}" />
+            <marker date="1393468909735" expanded="true" signature="1632:2094" placeholder="{...}" />
+            <marker date="1393468909735" expanded="true" signature="1719:2048" placeholder="{...}" />
+            <marker date="1393468909735" expanded="true" signature="1695:1716" placeholder="{...}" />
+            <marker date="1393468909735" expanded="true" signature="1923:2006" placeholder="{...}" />
+            <marker date="1393468909735" expanded="true" signature="3248:3542" placeholder="{...}" />
+            <marker date="1393468909735" expanded="true" signature="3343:3369" placeholder="{...}" />
+            <marker date="1393468909735" expanded="true" signature="3332:3444" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/main.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="54" selection-start="1783" selection-end="1783" vertical-scroll-proportion="0.41144413" vertical-offset="1066" max-vertical-offset="4104">
+        <state line="41" column="18" selection-start="974" selection-end="974" vertical-scroll-proportion="0.58900523" vertical-offset="288" max-vertical-offset="5454">
           <folding />
         </state>
       </provider>
