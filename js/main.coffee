@@ -85,8 +85,8 @@ _enemy_spawn_rate = 120
 
 enemyShipSpawn = ->
   if _enemy_spawn_counter % _enemy_spawn_rate == 0
-    spawnEnemy(3, stage.canvas.width, 50, -2, 0, 40, 5, 1, 0)
-  else if _enemy_spawn_counter > 500
+    spawnEnemy(3, stage.canvas.width, 50, -2, 0, 60, 5, 1, 0)
+  else if _enemy_spawn_counter > (500/_difficulty)
     spawnEnemy(2, 0, 100, 1, 0, 5, 3, 20, 100)
     _enemy_spawn_counter = 0
   _enemy_spawn_counter++
@@ -137,7 +137,7 @@ enemyShipMovement = ->
 
 _bullet_size = 5
 _bullet_push_multiplier = 3
-_bullet_pull_multiplier = 5
+_bullet_pull_multiplier = 3
 
 checkHit = (obj_a, obj_b) ->
   pt = obj_a.shape.localToLocal(0,0,obj_b)
