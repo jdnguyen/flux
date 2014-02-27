@@ -38,29 +38,8 @@
       <file leaf-file-name="main.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="18" selection-start="974" selection-end="974" vertical-scroll-proportion="0.58900523" vertical-offset="288" max-vertical-offset="5454">
+            <state line="16" column="43" selection-start="420" selection-end="435" vertical-scroll-proportion="-1.3193717" vertical-offset="1296" max-vertical-offset="6066">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="176" column="0" selection-start="4984" selection-end="4984" vertical-scroll-proportion="0.0" vertical-offset="2839" max-vertical-offset="6534">
-              <folding>
-                <marker date="1393468909735" expanded="true" signature="1037:1291" placeholder="{...}" />
-                <marker date="1393468909735" expanded="true" signature="923:968" placeholder="{...}" />
-                <marker date="1393468909735" expanded="true" signature="986:997" placeholder="{...}" />
-                <marker date="1393468909735" expanded="true" signature="1003:1052" placeholder="{...}" />
-                <marker date="1393468909735" expanded="true" signature="1632:2094" placeholder="{...}" />
-                <marker date="1393468909735" expanded="true" signature="1719:2048" placeholder="{...}" />
-                <marker date="1393468909735" expanded="true" signature="1695:1716" placeholder="{...}" />
-                <marker date="1393468909735" expanded="true" signature="1923:2006" placeholder="{...}" />
-                <marker date="1393468909735" expanded="true" signature="3248:3542" placeholder="{...}" />
-                <marker date="1393468909735" expanded="true" signature="3343:3369" placeholder="{...}" />
-                <marker date="1393468909735" expanded="true" signature="3332:3444" placeholder="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -329,7 +308,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="12" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -503,26 +482,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="176" column="0" selection-start="4984" selection-end="4984" vertical-scroll-proportion="0.0" vertical-offset="2839" max-vertical-offset="6534">
-          <folding>
-            <marker date="1393468909735" expanded="true" signature="1037:1291" placeholder="{...}" />
-            <marker date="1393468909735" expanded="true" signature="923:968" placeholder="{...}" />
-            <marker date="1393468909735" expanded="true" signature="986:997" placeholder="{...}" />
-            <marker date="1393468909735" expanded="true" signature="1003:1052" placeholder="{...}" />
-            <marker date="1393468909735" expanded="true" signature="1632:2094" placeholder="{...}" />
-            <marker date="1393468909735" expanded="true" signature="1719:2048" placeholder="{...}" />
-            <marker date="1393468909735" expanded="true" signature="1695:1716" placeholder="{...}" />
-            <marker date="1393468909735" expanded="true" signature="1923:2006" placeholder="{...}" />
-            <marker date="1393468909735" expanded="true" signature="3248:3542" placeholder="{...}" />
-            <marker date="1393468909735" expanded="true" signature="3343:3369" placeholder="{...}" />
-            <marker date="1393468909735" expanded="true" signature="3332:3444" placeholder="{...}" />
-          </folding>
+        <state line="175" column="37" selection-start="4974" selection-end="4974" vertical-scroll-proportion="0.0" vertical-offset="2893" max-vertical-offset="6570">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="18" selection-start="974" selection-end="974" vertical-scroll-proportion="0.58900523" vertical-offset="288" max-vertical-offset="5454">
+        <state line="16" column="43" selection-start="420" selection-end="435" vertical-scroll-proportion="-1.3193717" vertical-offset="1296" max-vertical-offset="6066">
           <folding />
         </state>
       </provider>

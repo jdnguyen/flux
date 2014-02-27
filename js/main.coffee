@@ -8,6 +8,16 @@ _points = 0
 _score_board = new createjs.Text("", "20px Arial", "#00FF00")
 _health = 20
 _health_board = new createjs.Text("", "20px Arial", "#00FF00")
+_difficulty = 1
+_difficulty_counter = 0
+_difficulty_max = 500
+
+increaseDifficulty = ->
+  _difficulty_counter++
+  if _difficulty_counter >= _difficulty_max
+    _difficulty_counter = 0
+    _difficulty += 0.1
+    _difficulty = parseFloat(_difficulty.toFixed(1))
 
 drawPoints = ->
   _score_board.text = "Score: " + _points
@@ -35,12 +45,13 @@ _ship_height = 30
 _my_ship_speed = 5
 _my_ship_target_x = null
 
-_my_shield = new createjs.Shape()
 _flux_radius = 60
 _flux_activate = false
 _flux_capture = false
 _flux_cooldown = 50
 _flux_counter = 0
+_my_shield = new createjs.Shape()
+_my_shield.graphics.beginFill("#37FDFC").drawCircle 0, 0, _flux_radius
 
 myShipMove = ->
   if _my_ship_target_x and Math.abs(_my_ship_target_x - _my_ship.x) > _my_ship_speed
@@ -74,7 +85,7 @@ _enemy_spawn_rate = 120
 
 enemyShipSpawn = ->
   if _enemy_spawn_counter % _enemy_spawn_rate == 0
-    spawnEnemy(3, stage.canvas.width, 50, -2, 0, 60, 5, 1, 0)
+    spawnEnemy(3, stage.canvas.width, 50, -2, 0, 40, 5, 1, 0)
   else if _enemy_spawn_counter > 500
     spawnEnemy(2, 0, 100, 1, 0, 5, 3, 20, 100)
     _enemy_spawn_counter = 0
@@ -86,12 +97,12 @@ spawnEnemy = (type, x, y, x_dir, y_dir, shoot_rate, bullet_speed, bullet_shot_ma
   shape.y = y
   _enemy_ship=
     shape: shape
-    shootDelay: shoot_rate
+    shootDelay: Math.round(shoot_rate / _difficulty)
     shootCounter: 0
-    bulletSpeed: bullet_speed
+    bulletSpeed: Math.round(bullet_speed * _difficulty)
     bulletShotMax: bullet_shot_max
     bulletShot: 0
-    bulletDelay: bullet_delay
+    bulletDelay: Math.round(bullet_delay / _difficulty)
     type: type
     x_dir: x_dir
     y_dir: y_dir
@@ -125,8 +136,8 @@ enemyShipMovement = ->
 #///////////////////////////////////////
 
 _bullet_size = 5
-_bullet_push_multiplier = 5
-_bullet_pull_multiplier = 2
+_bullet_push_multiplier = 3
+_bullet_pull_multiplier = 5
 
 checkHit = (obj_a, obj_b) ->
   pt = obj_a.shape.localToLocal(0,0,obj_b)
@@ -155,7 +166,7 @@ pushBullets = ->
   while i >= 0
     bullet = _my_pulled_bullets[i]
     direction = bullet.charge/_bullet_push_multiplier
-    direction = if direction > 1 then direction else 1
+    direction = if direction > 5 then direction else 5
     bullet.dir_x *= -direction
     bullet.dir_y *= -direction
     _my_pushed_bullets.push bullet
@@ -195,7 +206,7 @@ myPulledBulletTravel = ->
     if checkHit(bullet, _my_ship)
       stage.removeChild bullet.shape
       _my_pulled_bullets.splice(i, 1)
-      _health--
+      _health++ if _health < 20
     else
       bullet.shape.x += bullet.dir_x
       bullet.shape.y += bullet.dir_y
@@ -239,25 +250,7 @@ retargetBullet = (bullet) ->
 #///////////////////////////////////////
 
 init = ->
-  _enemy_ships = []
-  _enemy_bullets = []
-
-  _my_shield.graphics.beginFill("#37FDFC").drawCircle 0, 0, _flux_radius
-  _my_ship.x = 100
-  _my_ship.y = stage.canvas.height - _ship_height
-  _my_shield.x = _my_ship.x + 25
-  _my_shield.y = _my_ship.y + _flux_radius/4
-  _my_shield.alpha = 0.1
-  _score_board.x = 350
-  _score_board.y = 10
-  _health_board.x = 10
-  _health_board.y = 10
-
-  stage.addChild _score_board
-  stage.addChild _health_board
-  stage.addChild _my_shield
-  stage.addChild _my_ship
-
+  initDraw()
   stage.on "stagemousemove", (evt) ->
     if evt.rawY < stage.canvas.height
       _my_ship_target_x = evt.stageX - _ship_width/2
@@ -266,7 +259,9 @@ init = ->
     _my_ship_target_x = null
 
   stage.on "stagemousedown", (evt) ->
-    if !_flux_activate and _my_shield.alpha == 0.1
+    if _health <= 0
+      reset()
+    else if !_flux_activate and _my_shield.alpha == 0.1
       _flux_activate = true
       _flux_capture = true
 
@@ -279,6 +274,35 @@ init = ->
   createjs.Ticker.on "tick", update
   createjs.Ticker.setFPS 60
 
+initDraw = ->
+  _my_ship.x = 100
+  _my_ship.y = stage.canvas.height - _ship_height
+  _my_shield.x = _my_ship.x + 25
+  _my_shield.y = _my_ship.y + _flux_radius/4
+  _my_shield.alpha = 0.1
+  _score_board.x = 400
+  _score_board.y = 10
+  _health_board.x = 10
+  _health_board.y = 10
+
+  stage.addChild _score_board
+  stage.addChild _health_board
+  stage.addChild _my_shield
+  stage.addChild _my_ship
+
+reset = ->
+  _health = 20
+  _points = 0
+  _enemy_bullets = []
+  _enemy_ships = []
+  _my_pulled_bullets = []
+  _my_pushed_bullets = []
+  _difficulty = 1
+  _difficulty_counter = 0
+
+  stage.removeAllChildren()
+  initDraw()
+
 update = ->
   if _health > 0
     enemyBulletTravel()
@@ -290,9 +314,19 @@ update = ->
     regenShield()
     drawPoints()
     drawHealth()
+    increaseDifficulty()
 
     if _flux_capture
       _flux_capture = false
-    stage.update()
+  else
+    game_over = new createjs.Text("GAME OVER", "50px Arial", "#00FFFF")
+    u_suck = new createjs.Text("you suck", "12px Arial", "#00FFFF")
+    game_over.x = 100
+    game_over.y = 200
+    u_suck.x = 270
+    u_suck.y = 270
+    stage.addChild game_over
+    stage.addChild u_suck
+  stage.update()
 
 init()
